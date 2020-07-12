@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>tweetmoods</title>
+  <!-- HTML -->
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Nav Sectiom -->
+  <nav class="navbar">
+    <h1>TweetMoods</h1>
+    <ul>
+      <li><a href="#" class="coffee">Buy me a coffee</a></li>
+      <li><a href="#" class="twitter">Follow Me</a></li>
+    </ul>
+  </nav>
+  <!-- search section -->
+  <section class="search">
+    <img src = "./twitter-logo.png" alt = "twitter logo" height = "150px" width = "150px" />
+    <input type="text" placeholder="Enter twitter username" />
+    <button class = "btn">Mood</button>
+  </section>
+  <!-- main section -->
+  <main>
+    
+    <div class="mood">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img class = "dp-mood" src= "./twitter-logo.png" alt= "Avatar" style = "width:200px;height:200px;" />
+          </div>
+          <div class="flip-card-back">
+            <h1>John Doe</h1>
+            <p>Architect & Engineer</p>
+            <p>We love that guy</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="user-info">
+      <h1 class="username">username</h1>
+      <p>bio</p>
+    </div>
+  </main>
+  <script src="index.js"></script>
+</body>
+
+</html>

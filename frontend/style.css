@@ -1,0 +1,166 @@
+*,
+*::after,
+*::before{
+  box-sizing: border-box;
+  font-size: 100%;
+  margin:0;
+  padding: 0;
+}
+
+a{
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+body{
+  background: #000000;
+  color: #F7F7F7;
+}
+
+.navbar{
+  display: flex;
+  align-items: center;
+  padding: 4vh;
+  background: transparent;
+}
+
+.navbar ul{
+  margin-left: auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.navbar ul li{
+  list-style-type: none;
+  padding: 0.7rem;
+}
+
+.search{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+.search input{
+  margin: 15px;
+  padding: 1rem;
+  border: none;
+  outline: 0;
+  border-radius: 30px;
+  width: 50vw;
+}
+
+.btn{
+  background-color: #0082FF;
+  border: none;
+  border-radius: 20px;
+  padding: 0.5rem 1.3rem;
+  outline: none;
+  color: white;
+  transition: all 1s ease;
+}
+
+.btn:hover{
+  transform: scale(1.1);
+  box-shadow: 2px 2px 2px #BAE0FF;
+  background-color: #0054FF;
+}
+
+main{
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 1rem;
+  text-align: center;
+  padding: 0 4rem;
+}
+
+main h1{
+  margin-left: 5rem;
+  text-align: center;
+  animation: type 6s steps(9), blink 500ms steps(9) infinite normal;
+  overflow: hidden;
+  word-wrap: nowrap;
+  border-right: 1px solid white;
+  width: 9ch;
+  font-family: "consolas", monospace;
+  font-size: 2rem;
+}
+
+
+
+
+
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+  background-color: transparent;
+  width: 400px;
+  height: 400px;
+  perspective: 1000px;
+  /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  min-height: 400px;
+  min-width: 400px;
+  border-radius: 50%;
+  -webkit-backface-visibility: hidden;
+  /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+
+/* typing animation */
+@keyframes type{
+  from{
+    width: 0ch;
+  }
+  to{
+    width: 9ch;
+  }
+}
+
+@keyframes blink{
+  from{
+    border-right-color: rgba(255, 255, 255, 0.75);
+  }
+  to{
+    border-right-color: transparent;
+  }
+}
