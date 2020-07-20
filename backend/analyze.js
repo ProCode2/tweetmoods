@@ -17,13 +17,29 @@ const client = new Twitter({
   access_token_secret: process.env.ACCESS_SECRET
 });
 
-let results = {
-  anlz: undefined,
-  err: undefined
+let result = {
+  score: null,
+  username: null,
+  bio: null,
+  dp: null,
+  bg_color: null,
+  text_color: null,
+  err: null
+};
+
+const getScore = (tweet) => {
+  let lexedTweet = aposToLexForm(tweet);
+  let casedTweet = lexedTweet.toLowerCase();
+  let alphaTweet = casedTweet.replace(/[^a-zA-Z\s]+/g, '');
+  let tokenizedTweet = tokenizer.tokenize(alphaTweet);
+  let filteredTweet = stopWord.removeStopwords(tokenizedTweet);
+  return analyzer.getSentiment(filteredTweet);
 }
 
+
+
 //function to analyze the tweet sentiment
-const analyzeSentiment = (username) => {
+const analyzeSentiment = (username, res) => {
   let params = {
   screen_name: username,
   tweet_mode: 'extended',
@@ -35,21 +51,18 @@ const analyzeSentiment = (username) => {
 
   client.get('statuses/user_timeline', params, (error, tweets, response) => {
     if (!error) {
-      let tweet = tweets[0].full_text;
-      let lexedTweet = aposToLexForm(tweet);
-      let casedTweet = lexedTweet.toLowerCase();
-      let alphaTweet = casedTweet.replace(/[^a-zA-Z\s]+/g, '');
-      let tokenizedTweet = tokenizer.tokenize(alphaTweet);
-      let filteredTweet = stopWord.removeStopwords(tokenizedTweet);
-      results.anlz = analyzer.getSentiment(filteredTweet);
+      result.score = getScore(tweets[0].full_text);
+      result.username = tweets[0].user.name;
+      result.bio = tweets[0].user.description;
+      result.dp = tweets[0].user.profile_image_url;
+      result.bg_color = tweets[0].user.profile_link_color;
+      result.text_color = tweets[0].user.profile_text_color;
+      res.json(result);
       } 
     else{
-      results.err = error;
+      res.json(error);
       }
   });
-  if(results.anlz){
-    return results;
-  }
 }
 
 module.exports = analyzeSentiment;
