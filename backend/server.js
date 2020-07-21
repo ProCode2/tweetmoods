@@ -3,6 +3,8 @@ const analyze = require('./analyze.js');
 const cors = require('cors');
 
 const app = express();
+
+app.use('/', express.static('../frontend'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cors());

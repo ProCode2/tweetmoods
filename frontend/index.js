@@ -4,7 +4,6 @@ const name = document.querySelector('.username');
 const bio = document.querySelector('.bio');
 const main = document.querySelector('#score-show');
 const emoji = document.querySelector('.sentiment');
-const url = "http://localhost:3000/"
 
 const scores = new Map([
   [-5 , './emoticons/n5.svg'],
@@ -21,7 +20,7 @@ const scores = new Map([
 ]);
 
 const getData = (username) => {
-  fetch(url + username)
+  fetch('./' + username)
   .then(res => res.json())
   .then(data => {
     //setting main section to visible mode
