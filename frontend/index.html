@@ -16,39 +16,35 @@
   <nav class="navbar">
     <h1>TweetMoods</h1>
     <ul>
-      <li><a href="#" class="coffee">Buy me a coffee</a></li>
-      <li><a href="#" class="twitter">Follow Me</a></li>
+      <li><a href="https://buymeacoff.ee/ProCode" class="coffee">Buy me a coffee</a></li>
+      <li><a href="https://twitter.com/ProCode1" class="twitter">Follow Me</a></li>
     </ul>
   </nav>
+  <h1 class="sub-head">Check your Twitter friend's mood according to their recent tweet.</h1>
   <!-- search section -->
   <section class="search">
     <img src = "./twitter-logo.png" alt = "twitter logo" height = "150px" width = "150px" />
-    <input type="text" placeholder="Enter twitter username" />
-    <button class = "btn">Mood</button>
+    <input class="input" type="text" placeholder="Enter twitter username" />
+    <button class = "btn"><a href="#main-section" >Mood</a></button>
   </section>
   <!-- main section -->
-  <main>
-    
+  <a id = "main-section">
+  <main id="score-show">
     <div class="mood">
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img class = "dp-mood" src= "./twitter-logo.png" alt= "Avatar" style = "width:200px;height:200px;" />
-          </div>
-          <div class="flip-card-back">
-            <h1>John Doe</h1>
-            <p>Architect & Engineer</p>
-            <p>We love that guy</p>
-          </div>
-        </div>
+      <div class="emoji">
+        <img class="sentiment" src="" alt="emoji" />
       </div>
-    </div>
     
     <div class="user-info">
       <h1 class="username">username</h1>
-      <p>bio</p>
+      <p class="bio">bio</p>
     </div>
+  </div>
+  <div class="beg">
+    Don't Forget to share that!🤔😂
+  </div>
   </main>
+  </a>
   <script src="index.js"></script>
 </body>
 
