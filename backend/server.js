@@ -12,4 +12,6 @@ app.get('/:username', (req, res) => {
 	analyze(username, res);
 })
 
-app.listen(3000, () => console.log('listening'));
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log('listening'));
