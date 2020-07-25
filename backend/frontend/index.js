@@ -20,7 +20,7 @@ const scores = new Map([
 ]);
 
 const getData = (username) => {
-  fetch('./' + username)
+  fetch('/' + username)
   .then(res => res.json())
   .then(data => {
     //setting main section to visible mode
